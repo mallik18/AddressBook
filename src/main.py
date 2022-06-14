@@ -43,17 +43,17 @@ async def create_address(address: UserAddress):
     # validate the coordinates
     validation_response = validate_address(latitude, longitude)
 
-    if validation_response == 405:
+    if validation_response == 1405:
         logging.error("Enter a Valid location: Latitude is out of range")
         raise HTTPException(status_code=400,
                 detail="Enter a Valid location: Latitude is out of range")
 
-    if validation_response == 406:
+    if validation_response == 1406:
         logging.error("Enter a Valid location: Longitude is out of range")
         raise HTTPException(status_code=400,
                 detail="Enter a Valid location: Longitude is out of range")
 
-    if validation_response == 407:
+    if validation_response == 1407:
         logging.error("Both Latitude and Longitude are out of range")
         raise HTTPException(status_code=400,
                 detail="Both Latitude and Longitude are out of range")
@@ -115,17 +115,17 @@ async def update_address(address: UserAddress):
     # validate the coordinates
     validation_response = validate_address(latitude, longitude)
 
-    if validation_response == 405:
+    if validation_response == 1405:
         logging.error("Enter a Valid location: Latitude is out of range")
         raise HTTPException(status_code=400,
                 detail="Enter a Valid location: Latitude is out of range")
 
-    if validation_response == 406:
+    if validation_response == 1406:
         logging.error("Enter a Valid location: Longitude is out of range")
         raise HTTPException(status_code=400,
                 detail="Enter a Valid location: Longitude is out of range")
 
-    if validation_response == 407:
+    if validation_response == 1407:
         logging.error("Both Latitude and Longitude are out of range")
         raise HTTPException(status_code=400,
                 detail="Both Latitude and Longitude are out of range")
@@ -175,23 +175,23 @@ def validate_address(latitude, longitude):
     The latitude value should be within range of -90 to +90 degress
     The longiutude value should be within range of -180 to +180 degress
     Naming Error Convention:
-        405: Latitude out of range
-        406: Longitude out of range
-        407: Both lat and long are out of range
+        1405: Latitude out of range
+        1406: Longitude out of range
+        1407: Both lat and long are out of range
     """
     lat = 0
     long = 0
 
     # Latitude Check
     if float(latitude) < -90 or float(latitude) > 90:
-        lat = 405
+        lat = 1405
 
     # Longitude Check
     if float(longitude) < -180 or float(longitude) > 180:
-        long = 406
+        long = 1406
 
     if lat and long:
-        return 407
+        return 1407
 
     if lat:
         return lat

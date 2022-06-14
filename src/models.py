@@ -111,7 +111,7 @@ class Address:
         and location from sqlite database
 
         """
-        location = location.strip("(").strip(")").split(",")
+        location = location.split(",")
         latitude = float(location[0].strip())
         longitude = float(location[1].strip())
 
