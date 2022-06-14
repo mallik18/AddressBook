@@ -1,3 +1,4 @@
 venv/
 src/__pycache__/
 AddressBook.db/
+logs/db_connection.log
