@@ -23,7 +23,7 @@
     $ pip install -r requirements.txt
 
 4. Run server:
-    $ uvicorn src.main:app
+    $ uvicorn src.main:app --reload
 
 5. Delete the AddressBook.db file to reset Database.
 
